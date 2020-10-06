@@ -1,7 +1,10 @@
 package com.android.dan.testgithubapiapp.data.entity
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.android.parcel.Parcelize
 
+@Parcelize
 data class User(
     var id: Int,
     @SerializedName("login")
@@ -10,5 +13,5 @@ data class User(
 //    var avatarUrl: String,
     @SerializedName("html_url")
     var link: String,
-) {
+) : Parcelable {
 }
