@@ -1,10 +1,7 @@
 package com.android.dan.testgithubapiapp.di.component
 
 import android.app.Application
-import com.android.dan.testgithubapiapp.di.modules.AppModule
-import com.android.dan.testgithubapiapp.di.modules.ActivityModule
-import com.android.dan.testgithubapiapp.di.modules.FragmentModule
-import com.android.dan.testgithubapiapp.di.modules.ViewModelModule
+import com.android.dan.testgithubapiapp.di.modules.*
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -19,6 +16,8 @@ import javax.inject.Singleton
         ActivityModule::class,
         FragmentModule::class,
         AppModule::class,
+        ApiModule::class,
+        DatabaseSourcesBindingModule::class,
         ViewModelModule::class
     ]
 )

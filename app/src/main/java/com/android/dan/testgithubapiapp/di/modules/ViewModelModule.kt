@@ -1,6 +1,8 @@
 package com.android.dan.testgithubapiapp.di.modules
 
 import androidx.lifecycle.ViewModelProvider
+import com.android.dan.testgithubapiapp.presentation.auth.AuthViewModel
+import com.android.dan.testgithubapiapp.presentation.auth.login.LoginViewModel
 import com.android.dan.testgithubapiapp.presentation.base.BaseViewModel
 import com.android.dan.testgithubapiapp.presentation.main.MainViewModel
 import com.android.dan.testgithubapiapp.presentation.main.list.RepositoriesViewModel
@@ -26,4 +28,14 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(RepositoriesViewModel::class)
     abstract fun bindRepositoriesViewModel(viewModel: RepositoriesViewModel): BaseViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(AuthViewModel::class)
+    abstract fun bindAuthViewModel(viewModel: AuthViewModel): BaseViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(LoginViewModel::class)
+    abstract fun bindLoginViewModel(viewModel: LoginViewModel): BaseViewModel
 }
