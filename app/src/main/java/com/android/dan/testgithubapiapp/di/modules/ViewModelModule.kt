@@ -6,6 +6,8 @@ import com.android.dan.testgithubapiapp.presentation.auth.login.LoginViewModel
 import com.android.dan.testgithubapiapp.presentation.base.BaseViewModel
 import com.android.dan.testgithubapiapp.presentation.main.MainViewModel
 import com.android.dan.testgithubapiapp.presentation.main.list.RepositoriesViewModel
+import com.android.dan.testgithubapiapp.presentation.search.SearchActivityViewModel
+import com.android.dan.testgithubapiapp.presentation.search.searchfragment.SearchViewModel
 import com.android.dan.testgithubapiapp.presentation.utils.ViewModelFactory
 import dagger.Binds
 import dagger.Module
@@ -38,4 +40,14 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(LoginViewModel::class)
     abstract fun bindLoginViewModel(viewModel: LoginViewModel): BaseViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SearchActivityViewModel::class)
+    abstract fun bindSearchActivityViewModel(viewModel: SearchActivityViewModel): BaseViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SearchViewModel::class)
+    abstract fun bindSearchViewModel(viewModel: SearchViewModel): BaseViewModel
 }

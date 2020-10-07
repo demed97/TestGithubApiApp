@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">TestGithubApiApp</string>
     <string name="user_not_found">User not found</string>
+    <string name="search">Search</string>
+    <string name="not_found">No results were found for this request.</string>
+    <string name="authorize">authorize</string>
+    <string name="edit_login">Edit login</string>
+    <string name="repository_name">Repository name</string>
 </resources>

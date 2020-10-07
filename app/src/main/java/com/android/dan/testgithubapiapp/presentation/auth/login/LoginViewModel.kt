@@ -8,6 +8,7 @@ import com.android.dan.testgithubapiapp.domain.IGitRepository
 import com.android.dan.testgithubapiapp.presentation.base.BaseViewModel
 import com.android.dan.testgithubapiapp.presentation.utils.Result
 import com.android.dan.testgithubapiapp.presentation.utils.SingleLiveEvent
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -22,16 +23,19 @@ class LoginViewModel @Inject constructor(val repository: IGitRepository) : BaseV
     var login = MutableLiveData<Credentials>(Credentials(""))
 
     fun loginClick() {
-        val login1 = login.value!!
+        showProgressBar()
         scope.launch {
             val result = repository.checkUserExistence(login.value!!)
             when (result) {
                 is Result.SuccessResult<*> -> {
                     val user = result.result as User
                     _onAuthorizationSuccessfulEvent.postValue(user)
+
                 }
                 is Result.ExceptionResult -> _showToastEvent.postValue(Unit)
             }
+            delay(500)
+            hideProgressBar()
         }
     }
 }

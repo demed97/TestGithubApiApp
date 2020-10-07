@@ -7,13 +7,13 @@
 
         <variable
             name="repository"
-            type="com.android.dan.testgithubapiapp.data.entity.GitRepository" />
+            type="com.android.dan.testgithubapiapp.data.entity.GitRepositoryEntity" />
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+        android:layout_margin="@dimen/small_margin">
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,11 +24,11 @@
                 android:id="@+id/repoName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="6dip"
+                android:layout_marginBottom="@dimen/small_margin"
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:text="@{repository.name}"
-                android:textSize="30sp"
+                android:textSize="@dimen/normal_text_size"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="Repository Name" />
@@ -40,7 +40,7 @@
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:text="@{repository.description}"
-                android:textSize="25sp"
+                android:textSize="@dimen/low_normal_text_size"
                 app:layout_constraintStart_toStartOf="@+id/repoName"
                 app:layout_constraintTop_toBottomOf="@+id/repoName"
                 tools:text="Repository Description" />
@@ -52,7 +52,7 @@
                 android:ellipsize="end"
                 android:singleLine="true"
                 android:text="@{repository.owner.username}"
-                android:textSize="25sp"
+                android:textSize="@dimen/low_normal_text_size"
                 app:layout_constraintStart_toStartOf="@+id/repoName"
                 app:layout_constraintTop_toBottomOf="@+id/repoDescription"
                 tools:text="Owner Name" />

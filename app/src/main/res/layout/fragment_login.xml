@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/loginLayout">
 
     <data>
@@ -19,10 +18,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@={loginViewModel.login.username}"
-            android:hint="Edit login"
+            android:hint="@string/edit_login"
             android:layout_marginTop="100dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginStart="@dimen/small_margin"
+            android:layout_marginEnd="@dimen/small_margin"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
@@ -31,8 +30,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:onClick="@{()->loginViewModel.loginClick()}"
-            android:text="authorize"
-            android:layout_margin="10dp"
+            android:text="@string/authorize"
+            android:layout_margin="@dimen/small_margin"
             android:background="@color/colorPrimary"
             android:textColor="@color/colorWhite"
             app:layout_constraintStart_toStartOf="parent"

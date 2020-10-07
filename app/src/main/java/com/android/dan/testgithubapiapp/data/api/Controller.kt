@@ -1,6 +1,5 @@
 package com.android.dan.testgithubapiapp.data.api
 
-import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.converter.gson.GsonConverterFactory
 
@@ -13,7 +12,6 @@ class Controller() {
         .addConverterFactory(GsonConverterFactory.create())
 
     fun createService() : GitApi{
-//        sHttpClient.addInterceptor(headerInterceptor)
         val retrofit = sBuilder
             .client(sHttpClient.build())
             .build()

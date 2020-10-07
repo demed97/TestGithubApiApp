@@ -1,4 +1,4 @@
-package com.android.dan.testgithubapiapp.presentation.main.list
+package com.android.dan.testgithubapiapp.presentation.adapter
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,7 +6,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.android.dan.testgithubapiapp.R
-import com.android.dan.testgithubapiapp.data.entity.GitRepository
+import com.android.dan.testgithubapiapp.data.entity.GitRepositoryEntity
 import com.android.dan.testgithubapiapp.databinding.RepositoryItemBinding
 import com.android.dan.testgithubapiapp.presentation.utils.DiffUtilCallback
 import javax.inject.Inject
@@ -14,12 +14,12 @@ import javax.inject.Inject
 class RepositoriesAdapter @Inject constructor() :
     RecyclerView.Adapter<RepositoriesAdapter.RepositoriesHolder>() {
 
-    private var repositoryList: List<GitRepository> = arrayListOf()
+    private var repositoryEntityList: List<GitRepositoryEntity> = arrayListOf()
 
-    fun updateRepositoryList(newRepositoryList: List<GitRepository>) {
-        val diffUtilCallback = DiffUtilCallback(this.repositoryList, newRepositoryList)
+    fun updateRepositoryList(newRepositoryEntityList: List<GitRepositoryEntity>) {
+        val diffUtilCallback = DiffUtilCallback(this.repositoryEntityList, newRepositoryEntityList)
         val result = DiffUtil.calculateDiff(diffUtilCallback)
-        this.repositoryList = newRepositoryList
+        this.repositoryEntityList = newRepositoryEntityList
         result.dispatchUpdatesTo(this)
     }
 
@@ -35,11 +35,11 @@ class RepositoriesAdapter @Inject constructor() :
     }
 
     override fun onBindViewHolder(holder: RepositoriesHolder, position: Int) {
-        holder.repositoryItemBinding.repository = repositoryList[position]
+        holder.repositoryItemBinding.repository = repositoryEntityList[position]
     }
 
     override fun getItemCount(): Int {
-        return repositoryList.size
+        return repositoryEntityList.size
     }
 
     class RepositoriesHolder(var repositoryItemBinding: RepositoryItemBinding) :

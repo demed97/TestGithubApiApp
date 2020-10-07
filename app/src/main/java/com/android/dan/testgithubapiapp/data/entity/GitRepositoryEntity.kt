@@ -2,7 +2,7 @@ package com.android.dan.testgithubapiapp.data.entity
 
 import com.google.gson.annotations.SerializedName
 
-data class GitRepository(
+data class GitRepositoryEntity(
     var id: Int,
     var name: String,
     @SerializedName("private")

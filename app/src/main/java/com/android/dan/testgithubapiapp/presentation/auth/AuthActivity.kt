@@ -1,6 +1,5 @@
 package com.android.dan.testgithubapiapp.presentation.auth
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.android.dan.testgithubapiapp.R
 import com.android.dan.testgithubapiapp.presentation.auth.login.LoginFragment

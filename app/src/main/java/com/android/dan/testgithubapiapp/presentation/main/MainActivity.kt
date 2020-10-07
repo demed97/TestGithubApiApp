@@ -1,7 +1,6 @@
 package com.android.dan.testgithubapiapp.presentation.main
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import com.android.dan.testgithubapiapp.R
@@ -9,13 +8,12 @@ import com.android.dan.testgithubapiapp.data.entity.User
 import com.android.dan.testgithubapiapp.presentation.auth.AuthActivity
 import com.android.dan.testgithubapiapp.presentation.base.BaseActivity
 import com.android.dan.testgithubapiapp.presentation.main.list.RepositoriesFragment
-import javax.inject.Inject
 
 class MainActivity : BaseActivity<MainViewModel>(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val user = intent.getParcelableExtra<User>("user")
+        val user = intent.getParcelableExtra<User>(RepositoriesFragment.KEY_USER)
         showRepositoriesFragment(user)
         setVisibilityBackButton()
     }
@@ -44,7 +42,7 @@ class MainActivity : BaseActivity<MainViewModel>(R.layout.activity_main) {
     private fun showRepositoriesFragment(user: User) {
         supportFragmentManager
             .beginTransaction()
-            .add(R.id.mainFragmentContainer, RepositoriesFragment.newInstance(user))
+            .replace(R.id.mainFragmentContainer, RepositoriesFragment.newInstance(user))
             .commit()
     }
 }
