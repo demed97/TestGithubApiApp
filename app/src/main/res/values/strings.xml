@@ -6,4 +6,6 @@
     <string name="authorize">authorize</string>
     <string name="edit_login">Edit login</string>
     <string name="repository_name">Repository name</string>
+    <string name="search_repository">Search repository</string>
+    <string name="login">Login</string>
 </resources>

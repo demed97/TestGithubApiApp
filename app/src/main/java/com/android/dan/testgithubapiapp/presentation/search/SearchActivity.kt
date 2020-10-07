@@ -17,5 +17,6 @@ class SearchActivity : BaseActivity<SearchActivityViewModel>(R.layout.activity_s
             .beginTransaction()
             .replace(R.id.searchFragmentContainer, SearchFragment.newInstance())
             .commit()
+        supportActionBar?.title = getString(R.string.search_repository)
     }
 }

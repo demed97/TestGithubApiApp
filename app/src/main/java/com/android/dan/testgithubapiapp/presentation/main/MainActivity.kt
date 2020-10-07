@@ -44,5 +44,6 @@ class MainActivity : BaseActivity<MainViewModel>(R.layout.activity_main) {
             .beginTransaction()
             .replace(R.id.mainFragmentContainer, RepositoriesFragment.newInstance(user))
             .commit()
+        supportActionBar?.title = user.username
     }
 }

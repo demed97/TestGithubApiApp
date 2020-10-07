@@ -17,5 +17,6 @@ class AuthActivity : BaseActivity<AuthViewModel>(R.layout.activity_auth) {
             .beginTransaction()
             .add(R.id.authFragmentContainer, LoginFragment.newInstance())
             .commit()
+        supportActionBar?.title = getString(R.string.login)
     }
 }
