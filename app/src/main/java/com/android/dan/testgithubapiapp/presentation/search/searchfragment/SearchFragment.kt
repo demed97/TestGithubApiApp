@@ -9,25 +9,31 @@ import com.android.dan.testgithubapiapp.data.entity.GitRepositoryEntity
 import com.android.dan.testgithubapiapp.databinding.FragmentSearchBinding
 import com.android.dan.testgithubapiapp.presentation.base.BaseFragment
 import com.android.dan.testgithubapiapp.presentation.adapter.RepositoriesAdapter
+import com.android.dan.testgithubapiapp.presentation.adapter.RepositoriesPagedListAdapter
 import com.android.dan.testgithubapiapp.presentation.utils.observer
 import kotlinx.android.synthetic.main.fragment_search.*
 import javax.inject.Inject
 
 class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
 
-    @Inject
-    lateinit var adapter: RepositoriesAdapter
+//    @Inject
+//    lateinit var adapter: RepositoriesAdapter
+
+    val adapter = RepositoriesPagedListAdapter()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initBinding()
+
     }
 
     override fun subscribe() {
         super.subscribe()
         viewModel.searchRepositoriesLiveData.observer(this) {
             updateRecyclerView(it)
-
+        }
+        viewModel.repos.observer(this) {
+            adapter.submitList(it)
         }
     }
 
@@ -35,7 +41,7 @@ class SearchFragment : BaseFragment<SearchViewModel>(R.layout.fragment_search) {
         if (list.isEmpty()) {
             Toast.makeText(context, getString(R.string.not_found), Toast.LENGTH_LONG).show()
         }
-        adapter.updateRepositoryList(list)
+//        adapter.submitList(list!!)
         searchRepoRecyclerView.scrollToPosition(0)
     }
 

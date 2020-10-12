@@ -9,7 +9,7 @@
 
         <variable
             name="adapter"
-            type="com.android.dan.testgithubapiapp.presentation.adapter.RepositoriesAdapter" />
+            type="com.android.dan.testgithubapiapp.presentation.adapter.RepositoriesPagedListAdapter" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -35,7 +35,7 @@
             android:background="@color/colorPrimary"
             android:src="@drawable/ic_search_white"
             app:layout_constraintEnd_toEndOf="parent"
-            android:onClick="@{()->searchViewModel.startSearch()}"
+            android:onClick="@{()->searchViewModel.fetchReposByName()}"
             app:layout_constraintStart_toEndOf="@+id/searchField"
             app:layout_constraintTop_toTopOf="parent" />
 

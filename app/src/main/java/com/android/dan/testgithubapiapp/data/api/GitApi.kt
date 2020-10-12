@@ -18,4 +18,12 @@ interface GitApi {
 
     @GET("search/repositories")
     suspend fun searchListRepositories(@Query("q") query: String): Response<SearchResult>
+
+    @GET("search/repositories")
+    suspend fun searchListRepositories(
+        @Query("q") query: String,
+        @Query("page") page: Int,
+        @Query("per_page") perPage: Int,
+        @Query("sort") sort: String
+    ): Response<SearchResult>
 }
